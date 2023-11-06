@@ -8,6 +8,7 @@ import TerserWebpackPlugin from 'terser-webpack-plugin';
 import VirtualModulePlugin from 'webpack-virtual-modules';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import slash from 'slash';
+import { globalExternals } from '@fal-works/esbuild-plugin-global-externals';
 
 import type { Options, CoreConfig, DocsOptions, PreviewAnnotation } from '@storybook/types';
 import { globals } from '@storybook/preview/globals';
@@ -235,7 +236,6 @@ export default async (
     watchOptions: {
       ignored: /node_modules/,
     },
-    externals: globals,
     ignoreWarnings: [
       {
         message: /export '\S+' was not found in 'global'/,
@@ -248,6 +248,7 @@ export default async (
       Object.keys(virtualModuleMapping).length > 0
         ? new VirtualModulePlugin(virtualModuleMapping)
         : (null as any),
+      globalExternals(globals),
       new HtmlWebpackPlugin({
         filename: `iframe.html`,
         // FIXME: `none` isn't a known option
