@@ -1,3 +1,8 @@
+## 7.6.0-alpha.5
+
+- Angular: Support v17 - [#24717](https://github.com/storybookjs/storybook/pull/24717), thanks [@valentinpalkovic](https://github.com/valentinpalkovic)!
+- TestBuild: Globalize `@storybook/blocks` if `build.test.emptyBlocks` is `true` - [#24650](https://github.com/storybookjs/storybook/pull/24650), thanks [@ndelangen](https://github.com/ndelangen)!
+
 ## 7.6.0-alpha.4
 
 -  CLI: Ensure errors with opening the browser are caught - [#24668](https://github.com/storybookjs/storybook/pull/24668), thanks [@xueyawei](https://github.com/xueyawei)!
